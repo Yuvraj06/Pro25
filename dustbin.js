@@ -5,7 +5,7 @@ class dustbin
 		this.x=x;
 		this.y=y;
 		this.dustbinWidth=200;
-		this.dustbinHeight=100;
+		this.dustbinHeight=230;
 		this.wallThickness=20;
 		this.angle=0;	
 		
@@ -19,7 +19,7 @@ class dustbin
 		World.add(world, this.bottomBody)
 		World.add(world, this.leftWallBody)
 		World.add(world, this.rightWallBody);
-		
+		this.image=loadImage("dustbin.png");
 
 	}
 	display()
@@ -38,7 +38,7 @@ class dustbin
 			fill(255)
 			stroke(255)
 			rotate(this.angle)
-			rect(0,0,this.wallThickness, this.dustbinHeight);
+			// rect(0,0,this.wallThickness, this.dustbinHeight);
 			pop()
 
 			push()
@@ -49,7 +49,7 @@ class dustbin
 			angleMode(RADIANS)
 			fill(255)
 			rotate(-1*this.angle)
-			rect(0,0,this.wallThickness, this.dustbinHeight);
+			// rect(0,0,this.wallThickness, this.dustbinHeight);
 			pop()
 
 			push()
@@ -59,7 +59,11 @@ class dustbin
 			stroke(255)
 			angleMode(RADIANS)
 			fill(255)
-			rect(0,0,this.dustbinWidth, this.wallThickness);
+			// rect(0,0,this.dustbinWidth, this.wallThickness);
+
+			imageMode(CENTER);
+			image(this.image,0,-this.dustbinHeight/2, this.dustbinWidth, this.dustbinHeight);
+
 			pop()
 			
 	}

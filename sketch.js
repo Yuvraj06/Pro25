@@ -7,19 +7,13 @@ const Render = Matter.Render;
 var dustbinObj, paperObject,groundObject	
 var world, paperI, dustbinI,Paper ;
 
-function preload(){
 
-	paperI = loadImage("paper.png");
-	dusbinI = loadImage("dustbin.png")
-}
 
 function setup() {
 	createCanvas(1600, 700);
 	rectMode(CENTER);
 		
-	Paper =createSprite(200,450);
-	Paper.addImage("paper", paperI)
-	Paper.scale=0.8;
+	
 
 	engine = Engine.create();
 	world = engine.world;
@@ -47,16 +41,18 @@ function setup() {
 
 function draw() {
   rectMode(CENTER);
-  background(250);
+  background(300);
  
-  dustbinObj.display();
   paperObject.display();
+
+  dustbinObj.display();
+  
   groundObject.display();
  
   Engine.update(engine);
   
  
-  drawSprites();
+  
   
  
 }
@@ -64,7 +60,8 @@ function draw() {
 function keyPressed() {
   	if (keyCode === UP_ARROW) {
 
-    	Matter.Body.applyForce(paperObject.body,paperObject.body.position,{x:300,y:-250});
+		Matter.Body.applyForce(paperObject.body,paperObject.body.position,{x:150,y:-150});
+		
     
   	}
 }
